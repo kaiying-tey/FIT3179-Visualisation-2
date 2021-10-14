@@ -1,0 +1,48 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 450,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/kaiying-tey/FIT3179-Visualisation-2/main/data/movies-sorted-year.csv"
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "production_company",
+        "oneOf": [
+          "Columbia Pictures",
+          "Warner Bros.",
+          "Universal Pictures",
+          "Paramount Pictures",
+          "Twentieth Century Fox",
+          "Walt Disney Pictures",
+          "Marvel Studios",
+          "DreamWorks",
+          "Lionsgate",
+          "Summit Entertainment",
+          "BBC Films",
+          "Panorama Studios"
+        ]
+      }
+    }
+  ],
+  "layer":[
+    {"mark": {"type": "rect", "color": "white"}},
+{"mark": {"type": "rect", "tooltip": true},
+"encoding": {
+  "y": {"field": "production_company", "type": "nominal", "title": null, "axis": {"labelFontWeight": "bold"}},
+  "x": {"field": "year", "type": "ordinal","title": null, "axis": {"labelFontWeight": "bold", "labelFontSize":13}},
+  "color": {"aggregate": "count",  "field": "production_company" , "scale": {"scheme": "purpleblue"}}
+}}],
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {
+      "tickOpacity": 0,
+      "domainColor": "transparent",
+      "labelAngle": 0,
+      "titleFontSize": 15
+    },
+    "background": "#FEF1E6",
+    "legend": {"titleFont": "Nunito"}
+  }
+}

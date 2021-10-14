@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 450,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/kaiying-tey/FIT3179-Visualisation-2/main/data/movies-sorted-year.csv"
+  },
+  "transform": [
+    {"filter": {"field": "production_company", "equal": "Columbia Pictures"}},
+    {
+      "aggregate": [{"op": "sum", "field": "gross_mil", "as": "sum"}],
+      "groupby": ["year"]
+    }
+  ],
+  "layer": [{"mark": {"type": "line", "point": true, "color":"#664E88"}}],
+  "encoding": {
+    "y": {
+      "field": "sum",
+      "type": "quantitative",
+      "title": "Total Gross (Million)"
+    },
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {"labelFontWeight": "bold"}
+    },
+    "tooltip": [
+      {"field": "year", "title": "Year", "type": "ordinal"},
+      {"field": "sum", "title": "Total Gross (Mil)", "type": "quantitative"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {
+      "tickOpacity": 0,
+      "domainColor": "transparent",
+      "labelAngle": 0,
+      "titleFontSize": 13
+    },
+    "point": {"size": 50, "color":"#664E88"},
+    "background": "#FEF1E6"
+  }
+}

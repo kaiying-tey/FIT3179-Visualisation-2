@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Assignment 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Nunito:wght@300&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <div class="main-page">
+        
+       
+        <div class="vis-row">
+            <div class="vis-container">
+                <img src="images/IMDB-Logo.png" style="max-width: 250px; margin-left: 120px;">
+                <h1 class="main-title"> MOVIES </h1>
+                <h4 class="main-title-small">From 2010 to 2020</h4>
+                <p><i>“EVERY TIME I GO TO A MOVIE, IT’S MAGIC, NO MATTER WHAT THE MOVIE’S ABOUT.” </i></p>
+                <p>IMDb is an online database of information related to films, television programs, home videos, video games, and streaming content online – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.
+                    As of June 2021, IMDb has approximately <b>8 millions</b> titles (including episodes) and 10.4 million personalities in its database.
+                    
+                    <br>The cinema of the United States, often called Hollywood, has had a large effect on the film industry in general since the early 20th century. From 2010-2020, the IMDB database records a total of <b>10116</b> titles released by the USA.
+                </p>
+            </div>
+            <div class="vis-container">
+                <!-- <h3 class="vis-title">Number of Movies Released by Each Country</h3> -->
+                <div class="vis-map" id="map"></div>
+            </div>
+        </div>
+
+        <!-- Votes -->
+        <div class="separator">
+            <span class="dot"></span>
+            <div class="line"></div>
+            <h2 class="vis-title">THE SEVEN MOVIE GENRES</h2>
+            <div class="line"></div>
+            <img src="images/Camera2.png" style="margin: 0; transform: rotate(15deg);">
+        </div>
+
+        <div class="vis-row">
+            <div class="vis-container">
+                <h3 class="vis-year">2016</h3>
+                <div id="genre_2016" class="unit-chart"></div>
+            </div>
+
+            <div class="vis-container">
+                <h3 class="vis-year">2017</h3>
+                <div id="genre_2017" class="unit-chart"></div>
+            </div>
+
+            <div class="vis-container">
+                <h3 class="vis-year">2018</h3>
+                <div id="genre_2018" class="unit-chart"></div>
+            </div>
+        </div>
+
+        <div class="vis-row">
+            <div class="vis-container">
+                <h3 class="vis-year">2019</h3>
+                <div id="genre_2019" class="unit-chart"></div>
+            </div>
+
+            <div class="vis-container">
+                <h3 class="vis-year">2020</h3>
+                <div id="genre_2020" class="unit-chart"></div>
+            </div>
+
+            <div class="vis-paragraph"> 
+                <p><b>Drama dominates the genres for film. </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis tortor a ex commodo pellentesque id id nunc. Nam suscipit justo ligula, non fringilla elit sollicitudin vel. Cras tincidunt ornare ex, a euismod mi auctor eget. Integer venenatis arcu ac est vestibulum bibendum. Phasellus et tortor lobortis ligula mattis venenatis in et est. Nullam nec elit pharetra, rhoncus turpis fringilla, sollicitudin metus. Duis aliquam ullamcorper sapien, eget eleifend risus finibus sit amet. Praesent lacus nibh, interdum ut porttitor quis, dapibus ultricies sapien.</p>
+
+            </div>
+
+        </div>
+
+        <!-- Votes -->
+        <div class="separator">
+            <span class="dot"></span>
+            <div class="line"></div>
+            <h2 class="vis-title">HOW AUDIENCE RATE?</h2>
+            <div class="line"></div>
+            <img src="images/Film.png" style="margin: 0;">
+        </div>
+
+        <h3 class="vote-title" style="margin-top: 25px;">TOP 10 HIGHEST RATING MOVIES</h3>
+        <div class="vis-row">
+            <h3 class="vertical-title">English</h3>
+            <div class="vis-container">
+
+                <div id="top10_eng"></div>
+            </div>
+            <h3 class="vertical-title">Non-English</h3>
+            <div class="vis-container">
+                <div id="top10_noneng"></div>
+            </div>
+        </div>
+        <p style="width: 1200px; margin: 20px 60px;">Directed and written by <b>Valerio Zanoli, Hopeful Notes</b> showed how a young violinist with leukemia brings hope and life into a desolate Russian hospital for children. 
+            This inspirational drama gets <b>9.7/10 </b>in score with approximately 670 votes.
+            On the other hand, , <b>Das letze Mahl</b>, a 2018 German-Jewish historical drama film directed by <b>Florian Frerichs</b>, gets the <b>highest rating</b> in the non-English movies.
+            Its story was based on true events, dealing with the imminent break-up of a prestigious German-Jewish family on January 30th, 1933
+        </p>
+
+
+        <h3 class="vote-title">TOP 10 LOWEST RATING MOVIES</h3>
+        <div class="vis-row">
+            <h3 class="vertical-title">English</h3>
+            <div class="vis-container">
+                <div id="low10_eng"></div>
+            </div>
+            <h3 class="vertical-title">Non-English</h3>
+            <div class="vis-container">
+                <div id="low10_noneng"></div>
+            </div>
+        </div>
+
+
+        <!-- movies companies -->
+        <div class="separator">
+            <span class="dot"></span>
+            <div class="line"></div>
+            <h2 class="vis-title">THE FILM PRODUCTION COMPANIES</h2>
+            <div class="line"></div>
+            <img src="images/Film.png" style="margin: 0;">
+        </div>
+        <div class="vis-row">
+            <div class="vis-col">
+                
+                <div style="display:flex;">
+                    <img src="images/Universal-Logo.png" alt="universal-logo">
+                    <!-- <h2 style="margin-left: 15px; color: purple;">Universal Pictures</h2> -->
+                </div>
+                <div class="vis-container" style="margin: 20px 0; padding-left: 15px;">
+                    <div id="universal_gross"></div>
+                </div>
+                
+                <div style="display:flex;">
+                    <img src="images/Columbia-Logo.png" alt="columnbia-logo" style="max-width: 180px;">
+                    <!-- <h2 style="margin-left: 15px; color: purple;" >Columbia Pictures</h2> -->
+                </div>  
+                <div class="vis-container" style="margin: 20px 0; padding-left: 15px;">
+                    <div id="columbia_gross"></div>
+                </div>
+
+                <div style="display:flex;">
+                    <img src="images/Warner-Logo.png" alt="warner-logo" style="margin-top: 30px;">
+                    <!-- <h2 style="margin-left: 15px; color: purple;" >Columbia Pictures</h2> -->
+                </div> 
+                <div class="vis-container" style="margin: 20px 0; padding-left: 15px;">
+                    <div id="warner_gross" ></div>
+                </div>
+            </div>
+
+            <div class="vis-col" style="text-align: center;">
+                <p class="comp-para">
+                    Major film studios are production and distribution companies that release a  number of films annually and command a significant share of box office revenue.                
+                    Today, the Big Three majors – Universal Pictures, Warner Bros. Pictures, and Columbia Pictures – dominated the global film industry and made approximately 45 billions in the box office history.
+                    
+                    <br> <br>Being a leader in film entertainment, Universal Pictures has released more than 300 titles, including classics such as Fast & Furious, Despicable Me, Jurassic World, Jaws and etc.
+                    In 2015, the highest-grossing movie created by Universal to date brought in $652 million domestically and a crazy $1.6 billion worldwide.
+
+                    <br><br> Columbia Pictures is an American film production studio that is a member of the Sony Pictures Motion Picture Group, founded in 1918. The Columbia Pictures becomes one of the major film companies in the World
+                    with the its popular titles: Ghostbusters II (1989), Spider-Man(2002), 21 Jump Street(2012), Venom(2018), Jumanji:The Next Level(2019). 
+
+                    <br><br> Warner Bros. Pictures is an American film production and distribution company founded in 1923 by brothers Harry Warner, Albert Warner, Sam Warner, and Jack L. Warner.
+                    In 2011, the company produced a movie, Harry Potter and the Deathly Hallows – Part 2 which grossed total of $1,342,222,791 worldwide. It is the highest-grossing film in the Harry Potter franchise.
+                </p>
+
+                <h2>Number of Title Released by Each Company</h2>
+                <div class="vis-container">
+                    <div id="companies"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>FIT3179 Visualisation 2 By Tey Kai Ying</p>
+        </div>
+
+    </div>   <!--end page-->
+
+    <script type="text/javascript">
+
+        // Unit charts
+        var spec1 = "js/2016-genre.json";
+        var spec2 = "js/2017-genre.json";
+        var spec3 = "js/2018-genre.json";
+        var spec4 = "js/2019-genre.json";
+        var spec5 = "js/2020-genre.json";
+
+        // Bar charts
+        var spec6 = "js/top10votes_eng.json";
+        var spec7 = "js/top10votes_noneng.json";
+        var spec8 = "js/low10votes_eng.json";
+        var spec9 = "js/low10votes_noneng.json";
+
+        // Line charts (Gross)
+        var spec10 = "js/universal_gross.json";
+        var spec11 = "js/columbia_gross.json";
+        var spec12 = "js/warner_gross.json";
+
+        // Heatmap
+        var spec13 = "js/companies_movies.json";
+
+        // Choropleth Map
+        var spec14 = "js/countries_map.json";
+
+
+        vegaEmbed('#genre_2016', spec1, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#genre_2017', spec2, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#genre_2018', spec3, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#genre_2019', spec4, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#genre_2020', spec5, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#top10_eng', spec6, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#top10_noneng', spec7, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#low10_eng', spec8, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#low10_noneng', spec9, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        // Line charts
+        vegaEmbed('#universal_gross', spec10, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+        vegaEmbed('#columbia_gross', spec11, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+        vegaEmbed('#warner_gross', spec12, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        // Heatmap
+        vegaEmbed('#companies', spec13, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+        // Map
+        vegaEmbed('#map', spec14, {"actions":false}).then(function(result) {
+        }).catch(console.error);
+
+    </script>
+    
+</body>
+</html>

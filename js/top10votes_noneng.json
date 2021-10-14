@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 320,
+  "height": 250,
+  "data": {
+    "url": "https://raw.githubusercontent.com/kaiying-tey/FIT3179-Visualisation-2/main/data/movies-sorted-year.csv"
+  },
+  "params":[{
+    "name": "year_selection",
+    "bind": {
+    "input": "select",
+    "options": [null,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020],
+      "labels":[
+      "Show All",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020"],
+      "name": "Select Year: "
+      }
+  }],
+  "transform": [
+    {
+      "filter": {
+        "field": "language",
+        "oneOf": ["Russian", "German", "French", "Mandarin"]
+      }
+    },
+    {"filter": "year_selection == null || datum.year == year_selection"},
+
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "avg_vote", "order": "descending"}]
+    },
+    {"filter": "datum.rank <= 9"}
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 3,
+        "binSpacing": 0,
+        "color": "#911F27"
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "size": 150,
+        "color": "#630A10"
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "right", "xOffset": 30, "aria": false},
+      "encoding": {"text": {"field": "avg_vote", "type": "quantitative"}}
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "avg_vote",
+      "type": "quantitative",
+      "title": null,
+      "axis": null
+    },
+    "y": {
+      "field": "title",
+      "type": "nominal",
+      "title": null,
+      "axis": {"grid": false, "labelFontWeight": "bold"}
+    },
+    "tooltip": [
+      {"field": "title", "type": "nominal"},
+      {"field": "year", "title": "Year","type": "ordinal"},
+      {"field": "genre", "title": "Genre", "type": "nominal"},
+      {"field": "production_company", "title": "Production Company", "type": "nominal"},
+      {"field": "avg_vote", "title": "Vote Score", "type": "quantitative"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"tickOpacity": 0, "domainColor": "transparent"},
+    "background": "#FEF1E6"
+  }
+}

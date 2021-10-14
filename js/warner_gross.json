@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 450,
+  "height": 220,
+  "data": {
+    "url": "https://raw.githubusercontent.com/kaiying-tey/FIT3179-Visualisation-2/main/data/movies-sorted-year.csv"
+  },
+  "transform": [
+    {"filter": {"field": "production_company", "equal": "Warner Bros."}},
+    {
+      "aggregate": [{"op": "sum", "field": "gross_mil", "as": "sum"}],
+      "groupby": ["year"]
+    }
+  ],
+  "layer": [{"mark": {"type": "line", "point": true, "color": "orangered"}},
+  {"mark": "text", 
+    "encoding": {
+      "text": {"value": "Harry Potter and the Deathly Hallows /n in 2011 earned over 1.3 billion.", 
+      "condition": {"test": "datum.year < 2011 || datum.year > 2011"}
+      }
+    }
+  }
+],
+  "encoding": {
+    "y": {
+      "field": "sum",
+      "type": "quantitative",
+      "title": "Total Gross (Million)"
+    },
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {"labelFontWeight": "bold"}
+    },
+    "tooltip": [
+      {"field": "year", "title": "Year", "type": "ordinal"},
+      {"field": "sum", "title": "Total Gross (Mil)", "type": "quantitative"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {
+      "tickOpacity": 0,
+      "domainColor": "transparent",
+      "labelAngle": 0,
+      "titleFontSize": 13
+    },
+    "point": {"size": 50, "color": "orangered"},
+    "background": "#FEF1E6",
+    "text": {"dy": -15, "dx": 85, "lineBreak": "/n", "font": "Nunito", "color": "#630A10"}
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "description": "2017 A Rectangular Unit-Chart",
+  "data": {
+    "url": "https://raw.githubusercontent.com/kaiying-tey/FIT3179-Visualisation-2/main/data/2017-genre-unit-chart.csv"
+  },
+  "width": 300,
+  "height": 200,
+  "mark": {"type": "rect", "strokeWidth": 3},
+  "transform": [
+    {"calculate": "ceil(datum.id/ 10)", "as": "X"},
+    {"calculate": "datum.id - (datum.X - 1) *10", "as": "Y"}
+  ],
+  "encoding": {
+    "x": {"field": "X", "type": "ordinal", "axis": null},
+    "y": {"field": "Y", "type": "ordinal", "axis": null},
+    "color": {"field": "genre", "type": "nominal"},
+    "tooltip": {"field": "genre", "title": "Genre", "type": "nominal"}
+  },
+  "config": {
+    "style": {"rect": {"stroke": "white"}},
+    "view": {"stroke": "transparent"},
+    "legend": {"disable": true},
+    "background": "#FEF1E6"
+  }
+}
