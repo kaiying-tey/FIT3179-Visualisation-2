@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 450,
-  "height": 600,
+  "height": 650,
   "data": {
     "url": "https://raw.githubusercontent.com/kaiying-tey/FIT3179-Visualisation-2/main/data/movies-sorted-year.csv"
   },
@@ -28,11 +28,27 @@
   ],
   "layer":[
     {"mark": {"type": "rect", "color": "white"}},
-{"mark": {"type": "rect", "tooltip": true},
+{"mark": {"type": "rect", "tooltip": true , "stroke": "#911F27"},
+"params": [
+    {
+      "name": "highlight",
+      "select": {"type": "point", "on": "mouseover"}
+    }
+      ],
 "encoding": {
-  "y": {"field": "production_company", "type": "nominal", "title": null, "axis": {"labelFontWeight": "bold"}},
+  "y": {"field": "production_company", "type": "nominal", "title": null, "axis": {"labelFontWeight": "bold", "labelFontSize":12}},
   "x": {"field": "year", "type": "ordinal","title": null, "axis": {"labelFontWeight": "bold", "labelFontSize":13}},
-  "color": {"aggregate": "count",  "field": "production_company" , "scale": {"scheme": "purpleblue"}}
+  "color": {"aggregate": "count",  "field": "production_company" , "scale": {"scheme": "purpleblue"}},
+  "strokeWidth":{
+          "condition":[
+            {
+          "param": "highlight",
+          "empty": false,
+          "value": 2
+            }
+          ],
+          "value": 0
+        }
 }}],
   "config": {
     "view": {"stroke": "transparent"},

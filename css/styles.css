@@ -6,7 +6,7 @@ body{
 .main-page{
     background-color: #FEF1E6;
     height: 100%;
-    width: 1300px;
+    width: 1400px;
     margin: 0 auto;
 }
 .main-title{
@@ -22,14 +22,20 @@ body{
     font-family: 'Permanent Marker', cursive;
 }
 
+.main-para{
+    width: 480px;
+    margin-left: 0px;
+}
+
 .vis-map{
     margin-top: 30px;
+    margin-left: 20px;
 }
 
 .vis-row{
     display: flex;
     flex-direction: row;
-    padding-left: 20px;
+    padding-left: 70px;
 
 }
 
@@ -42,7 +48,7 @@ body{
 }
 
 .vote-title{
-    margin-left: 45px;
+    margin-left: 85px;
     font-size: 25px;
     margin-top: 40px;
 }
@@ -117,7 +123,7 @@ img{
     margin-top: 40px;
     padding-left: 75%;
     padding-bottom: 10px;
-    font-size: 16px;
+    font-size: 17px;
     font-family: 'Permanent Marker', cursive;
     
 }
@@ -133,7 +139,7 @@ img{
 }
 
 .comp-para{
-    margin: 10px auto 30px auto; 
+    margin: 10px auto 50px auto; 
     width: 600px;
     text-align: left;
 }

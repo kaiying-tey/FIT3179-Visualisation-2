@@ -42,19 +42,26 @@
   ],
   "layer": [
     {
+      "params": [
+        {"name": "highlight","select": {"type": "point", "on": "mouseover"}},
+        {"name": "select", "select": "point"}
+      ],
       "mark": {
         "type": "bar",
-        "height": 3,
+        "height": 4,
         "binSpacing": 0,
-        "color": "#911F27"
+        "color": "#630A10",
+        "cursor": "pointer",
+        "stroke": "white"
       }
     },
     {
       "mark": {
         "type": "circle",
         "filled": true,
-        "size": 150,
-        "color": "#630A10"
+        "size": 180,
+        "color": "#630A10",
+        "cursor": "pointer"
       }
     },
     {
@@ -81,8 +88,25 @@
       {"field": "genre", "title": "Genre", "type": "nominal"},
       {"field": "production_company", "title": "Production Company", "type": "nominal"},
       {"field": "avg_vote", "title": "Vote Score", "type": "quantitative"}
-    ]
-  },
+    ],
+    "color": {"condition": {"test": "datum.rank == 1"}, "value": "#A6A6A4"},
+    "strokeWidth": {
+      "condition": [
+      {
+          "param": "select",
+          "empty": false,
+          "value": 2
+      },
+      {
+          "param": "highlight",
+          "empty": false,
+          "value": 2
+      }
+      ],
+      "value": 0
+    }
+  }
+  ,
   "config": {
     "view": {"stroke": "transparent"},
     "axis": {"tickOpacity": 0, "domainColor": "transparent"},

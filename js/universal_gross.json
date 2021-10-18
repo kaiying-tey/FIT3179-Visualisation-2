@@ -12,7 +12,8 @@
       "groupby": ["year"]
     }
   ],
-  "layer": [{"mark": {"type": "line", "point": true, "color": "#002366"}},
+  "layer": [{"mark": {"type": "line", "point": true, "color": "#002366"}
+  },
   {"mark": "text", 
     "encoding": {
       "text": {"value": "A science fiction action film, /n Jurassic World was released, /n directed by Colin Trevorrow.", 
@@ -49,6 +50,6 @@
     },
     "point": {"size": 50, "color": "#002366"},
     "background": "#FEF1E6",
-    "text": {"dy": -15, "dx": 80, "lineBreak": "/n", "font": "Nunito" , "color": "#630A10"}
+    "text": {"dy": -15, "dx": 82, "lineBreak": "/n", "font": "Nunito" , "color": "#630A10", "fontSize": 12}
   }
 }

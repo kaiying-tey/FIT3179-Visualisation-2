@@ -48,6 +48,6 @@
     },
     "point": {"size": 50, "color": "orangered"},
     "background": "#FEF1E6",
-    "text": {"dy": -15, "dx": 85, "lineBreak": "/n", "font": "Nunito", "color": "#630A10"}
+    "text": {"dy": -15, "dx": 87, "lineBreak": "/n", "font": "Nunito", "color": "#502b2e", "fontSize": 12}
   }
 }

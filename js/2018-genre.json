@@ -14,7 +14,8 @@
   "encoding": {
     "x": {"field": "X", "type": "ordinal", "axis": null},
     "y": {"field": "Y", "type": "ordinal", "axis": null},
-    "color": {"field": "genre", "type": "nominal" , "legend": {"title": "Genre"}},
+    "color": {"field": "genre", "type": "nominal" , "legend": {"title": "Genre"}, "scale": {"range": ["#28527A", "#FB9300", "#d62628",  "#8FC1D4", "#FFD92F", "#5B6D5B", "#C490E4"]}
+  },
     "tooltip": {"field": "genre", "title": "Genre", "type": "nominal"}
   },
   "config": {"style": {"rect": {"stroke": "white"}},
